@@ -1,21 +1,10 @@
-from django.shortcuts import render
-from rest_framework.viewsets import ModelViewSet, GenericViewSet
-from .serializers import EventSerializer, TagSerializer
-from .models import Event, Tag
-from rest_framework import mixins
-from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.views import APIView
+import requests
 
 
-class TagViewSet(mixins.UpdateModelMixin,
-                 mixins.ListModelMixin,
-                 mixins.RetrieveModelMixin,
-                 GenericViewSet, ):
-    queryset = Tag.objects.all()
-    serializer_class = TagSerializer
-
-
-class EventViewSet(ModelViewSet):
-    queryset = Event.objects.all()
-    serializer_class = EventSerializer
-
+class EventView(APIView):
+    def get(self, request):
+        events = requests.get('https://spb-afisha.gate.petersburg.ru/kg/external/afisha/events')
+        queryset = events.json()['data']
+        return Response(queryset)
