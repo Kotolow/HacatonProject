@@ -11,4 +11,4 @@ class EventSerializer(ModelSerializer):
 class TagSerializer(ModelSerializer):
     class Meta:
         model = Tag
-        fields = '__all__'
+        fields = ['picked', 'name']
