@@ -30,9 +30,8 @@ class TasksHelper:
 
         return tasks
 
-    def schedule_to_tasks(self, group_id):
-        tasks = self.get_schedule(group_id)
-        user = User.objects.get(id=1)
+    def schedule_to_tasks(self, user):
+        tasks = self.get_schedule(user.group_id)
         for task in tasks:
             db_task = Tasks(
                 user=user,

@@ -11,4 +11,4 @@ def update_schedule():
     for user in users:
         logging.error(user.group_id)
         if user.group_id and user.group_id != 0:
-            helper.schedule_to_tasks(user.group_id)
+            helper.schedule_to_tasks(user)
