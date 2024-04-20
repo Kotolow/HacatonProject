@@ -22,5 +22,5 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('jobs/', include('jobs.urls')),
     path('schedule/', include('schedule.urls')),
-
+    path('', include('db_app.urls')),
 ]
