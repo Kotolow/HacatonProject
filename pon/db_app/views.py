@@ -17,7 +17,7 @@ class EmailSignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'password')
+        fields = ('email', 'password')
 
 
 def signup(request):
@@ -40,21 +40,18 @@ def signup(request):
 def login(request):
     if request.method == 'POST':
         try:
-
             data = json.loads(request.body)
-            # email = data['email']
-            username = data['username']
+            email = data['email']
             password = data['password']
 
             # Добавим отладочный вывод для проверки полученных данных
-            # print("Email:", email)
+            print("Email:", email)
             print("Password:", password)
-            print("Username:", username)
 
             # Используйте authenticate для аутентификации пользователя
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
 
-            if user != None:
+            if user is not None:
                 # Пользователь аутентифицирован успешно
                 return JsonResponse({'success': 'Аутентификация успешна'})
             else:
