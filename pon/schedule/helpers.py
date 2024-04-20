@@ -59,8 +59,3 @@ class TasksHelper:
         time_obj = datetime.datetime.strptime(time, '%H:%M').time()
         date_obj = datetime.datetime.strptime(date, '%Y-%m-%d').date()
         return datetime.datetime.combine(date_obj, time_obj)
-
-
-test = TasksHelper()
-test.get_schedule(9370)
-print(test.get_current_week_dates())

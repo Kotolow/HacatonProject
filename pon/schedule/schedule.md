@@ -51,7 +51,7 @@ SIMPLE - задача без ограничений по времени
  - deleted
 
 
-curl -X POST -F 'user=1' -F 'name=test1' -F 'description=test desc' http://127.0.0.1:8000/schedule/api/v1/set_task/
+curl -X POST -F 'user=1' -F 'name=test1' -F 'description=test desc' http://127.0.0.1:8000/schedule/api/v1/set_task
 
 
-curl -X
+curl -X GET http://127.0.0.1:8000/schedule/api/v1/get_calendar?month=4&year=2024

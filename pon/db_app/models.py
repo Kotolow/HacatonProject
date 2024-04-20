@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 class User(User):
     userid = models.AutoField(primary_key=True)
@@ -14,7 +15,7 @@ class Tasks(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(default=None)
     done = models.BooleanField(default=False)
-    start_time = models.DateTimeField(default=None, null=True)
+    start_time = models.DateTimeField(default=datetime.datetime.now, blank=True)
     end_time = models.DateTimeField(default=None, null=True)
 
 
