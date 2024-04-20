@@ -49,3 +49,9 @@ SIMPLE - задача без ограничений по времени
  - done
  - active
  - deleted
+
+
+curl -X POST -F 'user=1' -F 'name=test1' -F 'description=test desc' http://127.0.0.1:8000/schedule/api/v1/set_task/
+
+
+curl -X
