@@ -38,7 +38,7 @@ class EventView(APIView):
         params = {
             'fields': 'categories,description,id,place,title,age_restriction,is_free,images,tags',
             'expand': 'images,place,location,dates,participants',
-            'categories': ','.join([str(category.name) for category in categories]),
+            'categories': categories,
         }
 
         response = requests.get(url, params=params)
